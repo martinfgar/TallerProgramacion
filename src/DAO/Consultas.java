@@ -9,6 +9,7 @@ import java.util.List;
 import Modelos.Cliente;
 import Modelos.Factura;
 import Modelos.Pieza;
+import Modelos.Reparacion;
 import Modelos.Vehiculo;
 
 public class Consultas {
@@ -41,7 +42,7 @@ public class Consultas {
 		Connection conn = SQL.conectarOracle(username, password);
 		try {
 			
-			String query = "select id_vehiculo,modelo,color,año,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
+			String query = "select id_vehiculo,modelo,color,aï¿½o,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
 					+ "from vehiculo inner join cliente on vehiculo.id_cliente = cliente.id_cliente";
 			Statement pstm = conn.createStatement();
 			ResultSet resultados =pstm.executeQuery(query);
@@ -93,6 +94,7 @@ public class Consultas {
 			ResultSet resultados =pstm.executeQuery(query);
 			while(resultados.next()) {
 				Factura fact = new Factura(resultados.getInt(1),resultados.getDate(2),resultados.getDouble(3),resultados.getDate(4),resultados.getBoolean(5),resultados.getInt(6));
+				facturas.add(fact);
 			}
 			conn.close();
 			return facturas;
@@ -100,7 +102,24 @@ public class Consultas {
 			conn.close();
 			return facturas;
 		}
-		
 	}
-	
+	public ArrayList<Reparacion> verReparaciones() throws SQLException{
+		ArrayList<Reparacion> reparaciones = new ArrayList<Reparacion>();
+		ConexionDB SQL = new ConexionDB();
+		Connection conn = SQL.conectarOracle(username, password);
+		try {
+			String query = "select * from reparacion";
+			Statement pstm =  conn.createStatement();
+			ResultSet resultados =pstm.executeQuery(query);
+			while(resultados.next()) {
+				Reparacion rep = new Reparacion(resultados.getInt(1),resultados.getDate(2),resultados.getFloat(3),resultados.getString(4),resultados.getInt(5));
+				reparaciones.add(rep);
+			}
+			conn.close();
+			return reparaciones;
+		}catch (Exception e) {
+			conn.close();
+			return reparaciones;
+		}
+	}
 }

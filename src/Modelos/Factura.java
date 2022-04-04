@@ -1,5 +1,6 @@
 package Modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Factura {
@@ -11,8 +12,13 @@ public class Factura {
 	private boolean pagado;
 	private int id_vehiculo;
 	private Vehiculo coche;
+	private ArrayList<Reparacion> reparaciones;
 	
-	
+	public Factura(Vehiculo coche) {
+		this.id_vehiculo=coche.getId();
+		this.coche=coche;
+		fecha_entrada = new Date();
+	};
 	
 	public Factura(int id, Date fecha_entrada, double precio_total, Date fecha_fin, boolean pagado, int id_vehiculo) {
 		this.id = id;
@@ -30,6 +36,15 @@ public class Factura {
 		this.pagado = pagado;
 		this.coche = coche;
 	}
+	
+	public ArrayList<Reparacion> getReparaciones() {
+		return reparaciones;
+	}
+
+	public void setReparaciones(ArrayList<Reparacion> reparaciones) {
+		this.reparaciones = reparaciones;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -2,6 +2,9 @@ package System;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 import DAO.Consultas;
 import DAO.Inserts;
@@ -16,6 +19,7 @@ public class GestorOperaciones {
 	private ArrayList<Vehiculo> coches;
 	private ArrayList<Factura> facturas;
 	private ArrayList<Pieza> piezas;
+	private ArrayList<Reparacion> reparaciones; 
 	private Consultas consultasDB;
 	private Inserts insertsDB;
 	
@@ -30,6 +34,18 @@ public class GestorOperaciones {
 		facturas.forEach(factura ->{
 			factura.setCoche(buscarPorID(factura.getId_vehiculo()));
 		});
+		reparaciones = consultasDB.verReparaciones();
+		reparaciones.forEach(rep ->{
+			Factura factura = buscarFacturaPorId(rep.getId_factura());
+			factura.getReparaciones().add(rep);
+		});
+	}
+	
+	private Factura buscarFacturaPorId(int id) {
+		for(Factura factura : facturas) {
+			if (factura.getId()==id) return factura;
+		}
+		return null;
 	}
 	
 	private Vehiculo buscarPorID(int id) {
@@ -38,10 +54,38 @@ public class GestorOperaciones {
 		}
 		return null;
 	}
+	
+	public Factura buscarFacturaActualCoche(Vehiculo coche) {
+		for(Factura factura : facturas) {
+			if (factura.getCoche()==coche && factura.getFecha_fin()==null) {
+				return factura;
+			}
+		}
+	 
+		return new Factura(coche);
+	}
 
 	
+	public void escribirFactura(Factura factura) throws SQLException {
+		insertsDB.insertarFactura(factura);
+	}
 	public void anadirReparacion(Reparacion rep) throws SQLException {
 		insertsDB.insertarReparacion(rep);
+	}
+	
+	
+	
+	public void terminarReparacionCoche(Factura factura) throws SQLException {
+		factura.setFecha_fin(new Date());
+		factura.setPrecio_total(0);
+		factura.setPagado(false);
+		factura.getReparaciones().forEach(rep ->{
+			factura.setPrecio_total(factura.getPrecio_total()+rep.getDuracion()*10);
+			for(Entry<Pieza, Integer> entrada : rep.getPiezas().entrySet()) {
+				factura.setPrecio_total(factura.getPrecio_total()+entrada.getKey().getPrecio()*entrada.getValue());
+			}			
+		});
+		escribirFactura(factura);
 	}
 	
 	

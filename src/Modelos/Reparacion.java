@@ -9,22 +9,41 @@ public class Reparacion {
 	private Date fecha_hora;
 	private float duracion;
 	private String comentarios;
-	private Factura factura;
-	private Vehiculo coche;
+	private int id_factura;
 	private	HashMap<Pieza,Integer> piezas;
 	
 	public Reparacion() {};
 	
-	public Reparacion(int id, Date hora, float duracion, String comentarios, Factura factura, Vehiculo coche,
-			HashMap<Pieza, Integer> piezas) {
+
+	public Reparacion(int id, Date fecha_hora, float duracion, String comentarios, int id_factura) {
+		super();
 		this.id = id;
-		this.fecha_hora = hora;
+		this.fecha_hora = fecha_hora;
 		this.duracion = duracion;
 		this.comentarios = comentarios;
-		this.factura = factura;
-		this.coche = coche;
-		this.piezas = piezas;
+		this.id_factura = id_factura;
 	}
+	
+	public Date getFecha_hora() {
+		return fecha_hora;
+	}
+
+
+	public void setFecha_hora(Date fecha_hora) {
+		this.fecha_hora = fecha_hora;
+	}
+
+
+	public int getId_factura() {
+		return id_factura;
+	}
+
+
+	public void setId_factura(int id_factura) {
+		this.id_factura = id_factura;
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -49,18 +68,7 @@ public class Reparacion {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	public Factura getFactura() {
-		return factura;
-	}
-	public void setFactura(Factura factura) {
-		this.factura = factura;
-	}
-	public Vehiculo getCoche() {
-		return coche;
-	}
-	public void setCoche(Vehiculo coche) {
-		this.coche = coche;
-	}
+
 	public HashMap<Pieza, Integer> getPiezas() {
 		return piezas;
 	}
