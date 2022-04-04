@@ -35,7 +35,7 @@ public class Consultas {
 		}
 	}
 	
-	public List<Pieza> verPiezas(String username,String password){
+/*	public List<Pieza> verPiezas(String username,String password){
 		List<Pieza> piezas = new ArrayList<Pieza>();
 			try {
 				ConexionDB SQL = new ConexionDB();
@@ -45,6 +45,6 @@ public class Consultas {
 			}catch (Exception e) {
 				
 			}
-	}
+	}*/
 	
 }
