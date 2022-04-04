@@ -9,10 +9,19 @@ public class Factura {
 	private double precio_total;
 	private Date fecha_fin;
 	private boolean pagado;
+	private int id_vehiculo;
 	private Vehiculo coche;
 	
 	
 	
+	public Factura(int id, Date fecha_entrada, double precio_total, Date fecha_fin, boolean pagado, int id_vehiculo) {
+		this.id = id;
+		this.fecha_entrada = fecha_entrada;
+		this.precio_total = precio_total;
+		this.fecha_fin = fecha_fin;
+		this.pagado = pagado;
+		this.id_vehiculo=id_vehiculo;
+	}
 	public Factura(int id, Date fecha_entrada, double precio_total, Date fecha_fin, boolean pagado, Vehiculo coche) {
 		this.id = id;
 		this.fecha_entrada = fecha_entrada;
@@ -56,6 +65,12 @@ public class Factura {
 	}
 	public void setCoche(Vehiculo coche) {
 		this.coche = coche;
+	}
+	public int getId_vehiculo() {
+		return id_vehiculo;
+	}
+	public void setId_vehiculo(int id_vehiculo) {
+		this.id_vehiculo = id_vehiculo;
 	}
 	
 	

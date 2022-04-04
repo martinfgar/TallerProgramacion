@@ -1,24 +1,24 @@
 package Modelos;
 
-import java.time.LocalTime;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Reparacion {
 	
 	private int id;
-	private LocalTime hora;
+	private Date fecha_hora;
 	private float duracion;
 	private String comentarios;
 	private Factura factura;
 	private Vehiculo coche;
 	private	HashMap<Pieza,Integer> piezas;
 	
+	public Reparacion() {};
 	
-	
-	public Reparacion(int id, LocalTime hora, float duracion, String comentarios, Factura factura, Vehiculo coche,
+	public Reparacion(int id, Date hora, float duracion, String comentarios, Factura factura, Vehiculo coche,
 			HashMap<Pieza, Integer> piezas) {
 		this.id = id;
-		this.hora = hora;
+		this.fecha_hora = hora;
 		this.duracion = duracion;
 		this.comentarios = comentarios;
 		this.factura = factura;
@@ -31,11 +31,11 @@ public class Reparacion {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public LocalTime getHora() {
-		return hora;
+	public Date getHora() {
+		return fecha_hora;
 	}
-	public void setHora(LocalTime hora) {
-		this.hora = hora;
+	public void setHora(Date hora) {
+		this.fecha_hora = hora;
 	}
 	public float getDuracion() {
 		return duracion;
