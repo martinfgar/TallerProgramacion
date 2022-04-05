@@ -79,6 +79,7 @@ public class GestorOperaciones {
 
 	/*Actualiza el stock de la pieza restando la cantidad introducida*/
 	private void restarPiezas(Pieza pieza, int cantidad) throws SQLException {
+		pieza.setStock(pieza.getStock()-cantidad);
 		updatesDB.restarStockPieza(pieza, cantidad);
 	}
 	
@@ -105,12 +106,11 @@ public class GestorOperaciones {
 	 */
 	public void terminarReparacionCoche(Factura factura) throws SQLException {
 		factura.setFecha_fin(new Date());
-		factura.setPagado(false);
 		/*Hacer update en lugar de insert*/
 		updatesDB.actualizarFactura(factura);
 	}
 	
-	/*Añade piezas a la reparacion vigente*/
+	/*Aï¿½ade piezas a la reparacion vigente*/
 	public void anadirPiezasReparacion(Pieza pieza,int cantidad,Reparacion rep) {
 		rep.getPiezas().put(pieza, cantidad);
 	}
