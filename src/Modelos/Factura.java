@@ -2,6 +2,7 @@ package Modelos;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map.Entry;
 
 public class Factura {
 	
@@ -57,12 +58,20 @@ public class Factura {
 	public void setFecha_entrada(Date fecha_entrada) {
 		this.fecha_entrada = fecha_entrada;
 	}
+	/*Se calcula en base a las horas de las reparaciones y las piezas utilizadas.
+	 Se podria poner que tuviese dependencia de la clase del vehiculo. 
+	 */
 	public double getPrecio_total() {
+		precio_total =0;
+		reparaciones.forEach(rep ->{
+			precio_total+=rep.getDuracion()*10;
+			for (Entry<Pieza,Integer> linea : rep.getPiezas().entrySet()) {
+				precio_total+=linea.getValue()*linea.getKey().getPrecio();
+			}
+		});
 		return precio_total;
 	}
-	public void setPrecio_total(double precio_total) {
-		this.precio_total = precio_total;
-	}
+	
 	public Date getFecha_fin() {
 		return fecha_fin;
 	}
