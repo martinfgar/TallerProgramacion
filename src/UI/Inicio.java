@@ -26,7 +26,7 @@ public class Inicio extends JFrame implements ActionListener{
 	JButton opcion1;
 	JLabel opcion1T;
 	private Inicio miInicio;
-	
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,7 +40,7 @@ public class Inicio extends JFrame implements ActionListener{
 		});
 	}
 
-	
+	*/
 	public Inicio() {
 		iniciarComponentes();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

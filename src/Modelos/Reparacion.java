@@ -15,6 +15,7 @@ public class Reparacion {
 	public Reparacion() {};
 	
 
+
 	public Reparacion(int id, Date fecha_hora, float duracion, String comentarios, int id_factura) {
 		super();
 		this.id = id;

@@ -82,6 +82,13 @@ public class GestorOperaciones {
 		updatesDB.restarStockPieza(pieza, cantidad);
 	}
 	
+	public ArrayList<Pieza> piezasEnStock(){
+		ArrayList<Pieza> piezerio = new ArrayList<Pieza>();
+		piezas.forEach(piez -> {
+			if (piez.getStock()>0) piezerio.add(piez);
+		});
+		return piezerio;
+	}
 	/*
 	 Guarda la reparacion en la base de datos, junto a todas la lineas correspondientes de la tabla USA (piezas-cantidad-reparacion)
 	 Tambien actualiza el stock de piezas de la tabla piezas.
@@ -106,5 +113,47 @@ public class GestorOperaciones {
 	/*Añade piezas a la reparacion vigente*/
 	public void anadirPiezasReparacion(Pieza pieza,int cantidad,Reparacion rep) {
 		rep.getPiezas().put(pieza, cantidad);
+	}
+	
+	public ArrayList<Vehiculo> vehiculosEnReparacion(){
+		ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+		facturas.forEach(factura ->{
+			if (factura.getFecha_fin()==null) vehiculos.add(factura.getCoche());
+		});
+		return vehiculos;
+	}
+
+	public ArrayList<Vehiculo> getCoches() {
+		return coches;
+	}
+
+	public void setCoches(ArrayList<Vehiculo> coches) {
+		this.coches = coches;
+	}
+
+	public ArrayList<Factura> getFacturas() {
+		return facturas;
+	}
+
+	public void setFacturas(ArrayList<Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+	public ArrayList<Pieza> getPiezas() {
+		return piezas;
+	}
+
+	public void setPiezas(ArrayList<Pieza> piezas) {
+		this.piezas = piezas;
+	}
+
+	public ArrayList<Reparacion> getReparaciones() {
+		return reparaciones;
+	}
+
+	public void setReparaciones(ArrayList<Reparacion> reparaciones) {
+		this.reparaciones = reparaciones;
 	}	
+	
+	
 }
