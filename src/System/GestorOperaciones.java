@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import DAO.Consultas;
 import DAO.Inserts;
+import DAO.Updates;
 import Modelos.Factura;
 import Modelos.Pieza;
 import Modelos.Reparacion;
@@ -22,12 +23,14 @@ public class GestorOperaciones {
 	private ArrayList<Reparacion> reparaciones; 
 	private Consultas consultasDB;
 	private Inserts insertsDB;
+	private Updates updatesDB;
 	
 	public GestorOperaciones(String username, String password) throws SQLException {
 		this.username=username;
 		this.password=password;
 		consultasDB = new Consultas(username,password);
 		insertsDB = new Inserts(username,password);
+		updatesDB = new Updates(username,password);
 		coches = consultasDB.verVehiculos();
 		piezas = consultasDB.verPiezas();
 		facturas = consultasDB.verFacturas();
@@ -55,20 +58,20 @@ public class GestorOperaciones {
 		return null;
 	}
 	
-	public Factura buscarFacturaActualCoche(Vehiculo coche) {
+	public Factura buscarFacturaActualCoche(Vehiculo coche) throws SQLException {
 		for(Factura factura : facturas) {
 			if (factura.getCoche()==coche && factura.getFecha_fin()==null) {
 				return factura;
 			}
 		}
-	 
-		return new Factura(coche);
+		Factura factura = new Factura(coche);
+		insertsDB.insertarFactura(factura);
+		return factura;
 	}
 
 	
-	public void escribirFactura(Factura factura) throws SQLException {
-		insertsDB.insertarFactura(factura);
-	}
+	
+	
 	public void anadirReparacion(Reparacion rep) throws SQLException {
 		insertsDB.insertarReparacion(rep);
 	}
@@ -85,7 +88,8 @@ public class GestorOperaciones {
 				factura.setPrecio_total(factura.getPrecio_total()+entrada.getKey().getPrecio()*entrada.getValue());
 			}			
 		});
-		escribirFactura(factura);
+		/*Hacer update en lugar de insert*/
+		updatesDB.actualizarFactura(factura);
 	}
 	
 	

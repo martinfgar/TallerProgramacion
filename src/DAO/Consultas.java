@@ -86,7 +86,7 @@ public class Consultas {
 				return piezas;
 			}
 
-	
+	}
 	public ArrayList<Factura> verFacturas() throws SQLException{
 		ArrayList<Factura> facturas = new ArrayList<Factura>();
 		ConexionDB SQL = new ConexionDB();

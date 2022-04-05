@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Factura {
 	
-	private int id;
+	private int id=0;
 	private Date fecha_entrada;
 	private double precio_total;
 	private Date fecha_fin;
