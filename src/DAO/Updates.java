@@ -1,7 +1,6 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -25,7 +24,7 @@ public class Updates {
 		try {
 			String ssql = "update factura set  precio_total=? , fecha_fin = ?,pagado=? where id_factura=?";
 			PreparedStatement stmt = conn.prepareStatement(ssql);
-			stmt.setDate(2, (Date) factura.getFecha_fin());
+			stmt.setDate(2, new java.sql.Date (factura.getFecha_fin().getTime()));
 			stmt.setDouble(1, factura.getPrecio_total());
 			stmt.setBoolean(3, factura.isPagado());
 			stmt.setInt(4, factura.getId());
