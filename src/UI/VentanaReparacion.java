@@ -2,6 +2,7 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -35,6 +36,8 @@ public class VentanaReparacion extends JFrame {
 	public VentanaReparacion(GestorOperaciones gestor,Factura fact) {
 		this.factura= factura;
 		this.gestor=gestor;
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setTitle("     Hermanos Gutierrez S.A.");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 929, 600);
 		contentPane = new JPanel();

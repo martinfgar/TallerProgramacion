@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import System.GestorOperaciones;
 import javax.swing.JList;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
@@ -33,6 +35,8 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 	 */
 	public ElegirVehiculoReparar(GestorOperaciones gestor) {
 		this.gestor=gestor;
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setTitle("     Hermanos Gutierrez S.A.");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 661, 452);
 		contentPane = new JPanel();

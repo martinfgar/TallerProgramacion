@@ -19,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Insets;
+import java.awt.Toolkit;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -49,7 +51,8 @@ public class Login extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public Login() {
-		setTitle("Acceso Taller");
+		setTitle("     Acceso Taller Hermanos Gutierrez S.A.");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 567, 308);
 		contentPane = new JPanel();
@@ -89,14 +92,14 @@ public class Login extends JFrame implements ActionListener{
 		txtUsuario = new JTextField();
 		txtUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.gridx = 0;
 		gbc_textField.gridy = 2;
 		contentPane.add(txtUsuario, gbc_textField);
 		txtUsuario.setColumns(10);
 		
-		JLabel lblContra = new JLabel("Contresenia");
+		JLabel lblContra = new JLabel("Contrase\u00F1a");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_1.gridx = 0;
