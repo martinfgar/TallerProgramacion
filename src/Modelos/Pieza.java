@@ -62,6 +62,8 @@ public class Pieza {
 		this.categoria = categoria;
 	}
 	
-	
-	
+	@Override
+	public String toString(){
+		return marca+" "+modelo + ", Stock:"+ stock;
+	}
 }

@@ -58,5 +58,10 @@ public class Vehiculo {
 		this.dueno = dueno;
 	}
 	
+	@Override
+	public String toString() {
+		return modelo+" : "+color + " : "+matricula +" : "+anio.toString()+" | "+dueno.toString();
+	}
+	
 	
 }
