@@ -7,17 +7,14 @@ public class ConexionDB {
 	 
     public String driver = "oracle.jdbc.driver.OracleDriver";
 
-    // Nombre de la base de datos
-    public String database = "xe";
 
-    // Host
-    public String hostname = "91.200.117.27";
 
-    // Puerto
-    public String port = "49161";
+
+    public String hostname_port_db = "91.200.117.27:49161:xe";
+
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
-    public String url = "jdbc:oracle:thin:@" + hostname + ":" + port + ":" + database ;
+    public String url = "jdbc:oracle:thin:@" + hostname_port_db ;
 
     // Nombre de usuario
 

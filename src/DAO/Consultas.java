@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import Modelos.Cliente;
 import Modelos.Factura;
 import Modelos.Pieza;
@@ -21,6 +20,8 @@ public class Consultas {
 		this.username=username;
 		this.password=password;
 	}
+	
+	/*Devuelve la ID de la ultima reparacion realizada*/
 	public int last_rep_id() throws SQLException {
 		ConexionDB SQL = new ConexionDB();
 		Connection conn = SQL.conectarOracle(username, password);
@@ -36,6 +37,23 @@ public class Consultas {
 		}
 	}
 	
+	/*Devuelve la ID de la ultima factura*/
+	public int last_factura_id() throws SQLException {
+		ConexionDB SQL = new ConexionDB();
+		Connection conn = SQL.conectarOracle(username, password);
+		try {
+			String sql_id_rep = "select max(id_factura) from factura";
+			Statement pstm = conn.createStatement();
+			ResultSet resultado = pstm.executeQuery(sql_id_rep);
+			if (resultado.next()) return resultado.getInt(1);
+			return 0;
+		} catch(Exception e) {
+			conn.close();
+			return 0;
+		}
+	}
+	
+	/*Devuelve los vehiculos de la base de datos*/
 	public ArrayList<Vehiculo> verVehiculos() throws SQLException{
 		ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 		ConexionDB SQL = new ConexionDB();
@@ -63,7 +81,7 @@ public class Consultas {
 	}
 	
 
-
+	/*Devuelve las piezas de la base de datos*/
 	public ArrayList<Pieza> verPiezas() throws SQLException{
 		ArrayList<Pieza> piezas = new ArrayList<Pieza>();
 		ConexionDB SQL = new ConexionDB();
@@ -87,6 +105,8 @@ public class Consultas {
 			}
 
 	}
+	
+	/*Devuelve las facturas de la base de datos*/
 	public ArrayList<Factura> verFacturas() throws SQLException{
 		ArrayList<Factura> facturas = new ArrayList<Factura>();
 		ConexionDB SQL = new ConexionDB();
@@ -106,6 +126,8 @@ public class Consultas {
 			return facturas;
 		}
 	}
+	
+	/*Devuelve las reparaciones de la base de datos*/
 	public ArrayList<Reparacion> verReparaciones() throws SQLException{
 		ArrayList<Reparacion> reparaciones = new ArrayList<Reparacion>();
 		ConexionDB SQL = new ConexionDB();

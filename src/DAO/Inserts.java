@@ -20,6 +20,7 @@ public class Inserts {
 		this.password=password;
 	}
 	
+	/*Inserta una nueva reparacion en la base de datos, junto a las lineas correspondientes en la tabla usa*/
 	public void insertarReparacion(Reparacion rep) throws SQLException {
 		
 		ConexionDB conexion = new ConexionDB();
@@ -45,6 +46,8 @@ public class Inserts {
 			conn.close();
 		}
 	}
+	
+	/*Inserta una nueva factura en la bbdd*/
 	public void insertarFactura(Factura factura) throws SQLException{
 		ConexionDB conexion = new ConexionDB();
 		Connection conn = conexion.conectarOracle(username, password);
