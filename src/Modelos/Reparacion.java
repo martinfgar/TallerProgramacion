@@ -1,41 +1,60 @@
 package Modelos;
 
-import java.time.LocalTime;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Reparacion {
 	
 	private int id;
-	private LocalTime hora;
+	private Date fecha_hora;
 	private float duracion;
 	private String comentarios;
-	private Factura factura;
-	private Vehiculo coche;
+	private int id_factura;
 	private	HashMap<Pieza,Integer> piezas;
 	
+	public Reparacion() {};
 	
-	
-	public Reparacion(int id, LocalTime hora, float duracion, String comentarios, Factura factura, Vehiculo coche,
-			HashMap<Pieza, Integer> piezas) {
+
+	public Reparacion(int id, Date fecha_hora, float duracion, String comentarios, int id_factura) {
+		super();
 		this.id = id;
-		this.hora = hora;
+		this.fecha_hora = fecha_hora;
 		this.duracion = duracion;
 		this.comentarios = comentarios;
-		this.factura = factura;
-		this.coche = coche;
-		this.piezas = piezas;
+		this.id_factura = id_factura;
 	}
+	
+	public Date getFecha_hora() {
+		return fecha_hora;
+	}
+
+
+	public void setFecha_hora(Date fecha_hora) {
+		this.fecha_hora = fecha_hora;
+	}
+
+
+	public int getId_factura() {
+		return id_factura;
+	}
+
+
+	public void setId_factura(int id_factura) {
+		this.id_factura = id_factura;
+	}
+
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public LocalTime getHora() {
-		return hora;
+	public Date getHora() {
+		return fecha_hora;
 	}
-	public void setHora(LocalTime hora) {
-		this.hora = hora;
+	public void setHora(Date hora) {
+		this.fecha_hora = hora;
 	}
 	public float getDuracion() {
 		return duracion;
@@ -49,18 +68,7 @@ public class Reparacion {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	public Factura getFactura() {
-		return factura;
-	}
-	public void setFactura(Factura factura) {
-		this.factura = factura;
-	}
-	public Vehiculo getCoche() {
-		return coche;
-	}
-	public void setCoche(Vehiculo coche) {
-		this.coche = coche;
-	}
+
 	public HashMap<Pieza, Integer> getPiezas() {
 		return piezas;
 	}
