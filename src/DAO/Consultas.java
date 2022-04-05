@@ -62,10 +62,13 @@ public class Consultas {
 		}
 	}
 	
+
+
 	public ArrayList<Pieza> verPiezas() throws SQLException{
 		ArrayList<Pieza> piezas = new ArrayList<Pieza>();
 		ConexionDB SQL = new ConexionDB();
 		Connection conn = SQL.conectarOracle(username, password);
+
 			try {
 				String query = "select id_pieza,marca,modelo,precio,stock,descripcion,categorias.nombre "
 						+ "from pieza inner join categorias on pieza.id_categoria=categorias.id_categoria";
@@ -82,7 +85,7 @@ public class Consultas {
 				conn.close();
 				return piezas;
 			}
-	}
+
 	
 	public ArrayList<Factura> verFacturas() throws SQLException{
 		ArrayList<Factura> facturas = new ArrayList<Factura>();
