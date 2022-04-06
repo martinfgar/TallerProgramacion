@@ -2,12 +2,16 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
+import java.awt.Toolkit;
+
 import java.awt.event.ActionEvent;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -58,7 +62,12 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 	public VentanaReparacion(GestorOperaciones gestor,Factura fact){
 		this.factura= fact;
 		this.gestor=gestor;
+
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setTitle("     Hermanos Gutierrez S.A.");
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 929, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
