@@ -4,12 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import java.awt.Toolkit;
-
+import System.CreadorPDF;
 import java.awt.event.ActionEvent;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 
@@ -161,7 +162,14 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 			try {
 				gestor.anadirReparacion(rep);
 				gestor.terminarReparacionCoche(factura);
-				JOptionPane.showMessageDialog(this, "Vehiculo listo para entregar.","Exito",JOptionPane.INFORMATION_MESSAGE);
+				try {
+					CreadorPDF.crearPdfFactura(factura);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(this, "Vehiculo listo para entregar.\nFactura generada en el directorio de facturas.","Exito",JOptionPane.INFORMATION_MESSAGE);
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

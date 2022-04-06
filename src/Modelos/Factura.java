@@ -65,8 +65,13 @@ public class Factura {
 		precio_total =0;
 		reparaciones.forEach(rep ->{
 			precio_total+=rep.getDuracion()*10;
-			for (Entry<Pieza,Integer> linea : rep.getPiezas().entrySet()) {
-				precio_total+=linea.getValue()*linea.getKey().getPrecio();
+			try {
+				for (Entry<Pieza,Integer> linea : rep.getPiezas().entrySet()) {
+					precio_total+=linea.getValue()*linea.getKey().getPrecio();
+				}
+				
+			} catch (Exception e){
+				//En caso de operacion sin piezas
 			}
 		});
 		return precio_total;
