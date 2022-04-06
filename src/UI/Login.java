@@ -24,6 +24,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.GridLayout;
 
 public class Login extends JFrame implements ActionListener{
 
@@ -58,53 +59,30 @@ public class Login extends JFrame implements ActionListener{
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		setContentPane(contentPane);
-		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		contentPane.setLayout(gbl_contentPane);
 		
 		JButton botonLogin = new JButton("Acceder");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.anchor = GridBagConstraints.SOUTH;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.gridx = 0;
-		gbc_btnNewButton.gridy = 6;
 		botonLogin.addActionListener(this);
+		contentPane.setLayout(new GridLayout(3, 3, 0, 10));
 		
-		passwordField = new JPasswordField();
-		GridBagConstraints gbc_passwordField = new GridBagConstraints();
-		gbc_passwordField.insets = new Insets(0, 0, 5, 0);
-		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_passwordField.gridx = 0;
-		gbc_passwordField.gridy = 5;
-		contentPane.add(passwordField, gbc_passwordField);
-		contentPane.add(botonLogin, gbc_btnNewButton);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 1;
-		contentPane.add(lblUsuario, gbc_lblNewLabel);
+		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblUsuario);
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.gridx = 0;
-		gbc_textField.gridy = 2;
-		contentPane.add(txtUsuario, gbc_textField);
+		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
+	
 		JLabel lblContra = new JLabel("Contrase\u00F1a");
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1.gridx = 0;
-		gbc_lblNewLabel_1.gridy = 4;
-		contentPane.add(lblContra, gbc_lblNewLabel_1);
+		lblContra.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblContra);
+		
+		passwordField = new JPasswordField();
+		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(passwordField);
+		contentPane.add(botonLogin);
 	}
 	
 	@Override
@@ -121,7 +99,7 @@ public class Login extends JFrame implements ActionListener{
 				e.printStackTrace();
 			}
 		} else {
-			JOptionPane.showMessageDialog(this, "Contrasenia incorrecta", "Liadon", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Contrase\u00F1a incorrecta", "Liadon", JOptionPane.ERROR_MESSAGE);
 		} 
 	}
 
