@@ -35,7 +35,7 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 	 */
 	public ElegirVehiculoReparar(GestorOperaciones gestor) {
 		this.gestor=gestor;
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setTitle("     Hermanos Gutierrez S.A.");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 661, 452);

@@ -23,7 +23,7 @@ public class Inicio extends JFrame implements ActionListener{
 
 	public Inicio(GestorOperaciones gestor) {
 		this.gestor=gestor;
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setTitle("     Hermanos Gutierrez S.A.");
 		setSize(500, 400);
 		setLocationRelativeTo(null);

@@ -52,7 +52,7 @@ public class Login extends JFrame implements ActionListener{
 	 */
 	public Login() {
 		setTitle("     Acceso Taller Hermanos Gutierrez S.A.");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 567, 308);
 		contentPane = new JPanel();

@@ -63,7 +63,7 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 		this.factura= fact;
 		this.gestor=gestor;
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setTitle("     Hermanos Gutierrez S.A.");
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
