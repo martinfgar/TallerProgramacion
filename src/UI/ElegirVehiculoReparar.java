@@ -73,9 +73,7 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 		JScrollPane panelVehiculosEnRep = new JScrollPane(listaVehiculosEnRep);
 		panelVehiculosEnRep.setViewportBorder(new TitledBorder(null, "Vehiculos en Reparacion", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		contentPane.add(panelVehiculosEnRep, BorderLayout.EAST);
-		
-		
-		
+			
 	}
 	
 	
@@ -83,7 +81,7 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent eleccion) {
 		switch (eleccion.getActionCommand()) {
 		case "Atras":
-			Inicio inicio = new Inicio();
+			Inicio inicio = new Inicio(gestor);
 			inicio.setVisible(true);
 			dispose();
 			break;

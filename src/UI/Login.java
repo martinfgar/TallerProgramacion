@@ -114,8 +114,7 @@ public class Login extends JFrame implements ActionListener{
 		if(new ConexionDB().conectarOracle(usuario,passwd)!=null) {
 			try {
 				GestorOperaciones gestor = new GestorOperaciones(usuario,passwd);
-				/*Inicio programa = new Inicio();*/
-				ElegirVehiculoReparar programa = new ElegirVehiculoReparar(gestor);
+				Inicio programa = new Inicio(gestor);
 				programa.setVisible(true);
 				this.dispose();
 			} catch (SQLException e) {

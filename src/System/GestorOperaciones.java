@@ -74,13 +74,14 @@ public class GestorOperaciones {
 		Factura factura = new Factura(coche);
 		insertsDB.insertarFactura(factura);
 		factura.setId(consultasDB.last_factura_id());
+		facturas.add(factura);
 		return factura;
 	}
 
 	/*Actualiza el stock de la pieza restando la cantidad introducida*/
 	private void restarPiezas(Pieza pieza, int cantidad) throws SQLException {
-		pieza.setStock(pieza.getStock()-cantidad);
 		updatesDB.restarStockPieza(pieza, cantidad);
+		pieza.setStock(pieza.getStock()-cantidad);
 	}
 	
 	public ArrayList<Pieza> piezasEnStock(){

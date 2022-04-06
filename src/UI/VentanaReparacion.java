@@ -146,6 +146,7 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent click) {
 		Reparacion rep = null;
+		Inicio inc;
 		switch(click.getActionCommand()) {
 		case "anadir":
 			if (((Pieza)listaPiezas.getSelectedValue()).getStock()>=(Integer)spinner.getValue())
@@ -165,6 +166,8 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			inc = new Inicio(gestor);
+			inc.setVisible(true);
 			dispose();
 			break;
 			
@@ -178,6 +181,8 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			inc = new Inicio(gestor);
+			inc.setVisible(true);
 			dispose();
 			break;
 		}

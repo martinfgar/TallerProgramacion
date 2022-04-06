@@ -1,5 +1,8 @@
 package UI;
 import javax.swing.*;
+
+import System.GestorOperaciones;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,12 +17,14 @@ public class Inicio extends JFrame implements ActionListener{
 	private JButton btn4;
 	private JButton btn5;
 	private JButton btnSalir ;
+	private GestorOperaciones gestor;
 	
 	private JLabel etiqueta;
 
-	public Inicio() {
+	public Inicio(GestorOperaciones gestor) {
+		this.gestor=gestor;
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/llave-inglesa.png")));	
-		setTitle("Hermanos Gutierrez S.A.");
+		setTitle("     Hermanos Gutierrez S.A.");
 		setSize(500, 400);
 		setLocationRelativeTo(null);
 		iniciarComponenetes();		
@@ -99,7 +104,7 @@ public class Inicio extends JFrame implements ActionListener{
 		switch(e.getActionCommand()) {
 		case "Reparar un vehiculo" :
 			etiqueta.setText("Estamos trabajando en ello...");
-			ElegirVehiculoReparar nuevo = new ElegirVehiculoReparar(null);
+			ElegirVehiculoReparar nuevo = new ElegirVehiculoReparar(gestor);
 			nuevo.setVisible(true);
 			this.dispose();
 			break;

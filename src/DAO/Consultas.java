@@ -60,7 +60,7 @@ public class Consultas {
 		Connection conn = SQL.conectarOracle(username, password);
 		try {
 			
-			String query = "select id_vehiculo,modelo,color,año,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
+			String query = "select id_vehiculo,modelo,color,a\u00f1o,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
 					+ "from vehiculo inner join cliente on vehiculo.id_cliente = cliente.id_cliente";
 			Statement pstm = conn.createStatement();
 			ResultSet resultados =pstm.executeQuery(query);
