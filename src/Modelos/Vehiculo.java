@@ -60,7 +60,7 @@ public class Vehiculo {
 	
 	@Override
 	public String toString() {
-		return modelo+" : "+color + " : "+matricula +" : "+anio.toString()+" | "+dueno.toString();
+		return modelo+" : "+color + " : "+matricula +" : "+anio.toString();
 	}
 	
 	

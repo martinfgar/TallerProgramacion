@@ -66,7 +66,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return nombre+" "+ apellido +" : dni >"+dni + " : tel>"+telefono;
+		return nombre+" "+ apellido +"\n"+dni + "\n"+telefono;
 	}
 	
 	

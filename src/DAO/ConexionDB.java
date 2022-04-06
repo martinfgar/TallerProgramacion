@@ -10,7 +10,7 @@ public class ConexionDB {
 
 
 
-    public String hostname_port_db = "192.168.100.162:5121:xe";
+    public String hostname_port_db = "localhost:1521:xe";
 
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
