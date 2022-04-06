@@ -85,17 +85,20 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 		case "Atras":
 			Inicio inicio = new Inicio();
 			inicio.setVisible(true);
-			this.dispose();
+			dispose();
 			break;
 			
 		case "Reparar":
 			Factura fac = null;
 			try {
 				fac = gestor.buscarFacturaActualCoche((Vehiculo) listaVehiculos.getSelectedValue());
+				VentanaReparacion ventana =new VentanaReparacion(gestor,fac);
+				ventana.setVisible(true);
+				dispose();
 			} catch (SQLException e) {
 				
 			}
-			VentanaReparacion ventana =new VentanaReparacion(gestor,fac);
+			
 			break;
 		}
 	}

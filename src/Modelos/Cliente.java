@@ -64,5 +64,10 @@ public class Cliente {
 		this.correo = correo;
 	}
 	
+	@Override
+	public String toString() {
+		return nombre+" "+ apellido +" : dni >"+dni + " : tel>"+telefono;
+	}
+	
 	
 }

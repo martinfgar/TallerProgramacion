@@ -60,7 +60,7 @@ public class Consultas {
 		Connection conn = SQL.conectarOracle(username, password);
 		try {
 			
-			String query = "select id_vehiculo,modelo,color,a�o,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
+			String query = "select id_vehiculo,modelo,color,año,matricula,cliente.id_cliente,nombre,apellido,telefono,direccion,dni,correo "
 					+ "from vehiculo inner join cliente on vehiculo.id_cliente = cliente.id_cliente";
 			Statement pstm = conn.createStatement();
 			ResultSet resultados =pstm.executeQuery(query);
@@ -89,7 +89,7 @@ public class Consultas {
 
 			try {
 				String query = "select id_pieza,marca,modelo,precio,stock,descripcion,categorias.nombre "
-						+ "from pieza inner join categorias on pieza.id_categoria=categorias.id_categoria";
+						+ "from piezas inner join categorias on piezas.id_categoria=categorias.id_categoria";
 				Statement pstm =  conn.createStatement();
 				ResultSet resultados =pstm.executeQuery(query);
 				while(resultados.next()) {
@@ -116,6 +116,7 @@ public class Consultas {
 			Statement pstm =  conn.createStatement();
 			ResultSet resultados =pstm.executeQuery(query);
 			while(resultados.next()) {
+				
 				Factura fact = new Factura(resultados.getInt(1),resultados.getDate(2),resultados.getDouble(3),resultados.getDate(4),resultados.getBoolean(5),resultados.getInt(6));
 				facturas.add(fact);
 			}

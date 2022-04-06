@@ -14,7 +14,14 @@ public class Reparacion {
 	
 	public Reparacion() {};
 	
-
+	public Reparacion( Date fecha_hora, float duracion, String comentarios, int id_factura, HashMap<Pieza,Integer> piezas) {
+		super();
+		this.fecha_hora = fecha_hora;
+		this.duracion = duracion;
+		this.comentarios = comentarios;
+		this.id_factura = id_factura;
+		this.piezas=piezas;
+	}
 
 	public Reparacion(int id, Date fecha_hora, float duracion, String comentarios, int id_factura) {
 		super();

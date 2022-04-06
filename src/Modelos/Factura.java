@@ -9,11 +9,11 @@ public class Factura {
 	private int id=0;
 	private Date fecha_entrada;
 	private double precio_total;
-	private Date fecha_fin;
-	private boolean pagado;
+	private Date fecha_fin = null;
+	private boolean pagado = false;
 	private int id_vehiculo;
 	private Vehiculo coche;
-	private ArrayList<Reparacion> reparaciones;
+	private ArrayList<Reparacion> reparaciones = new ArrayList<Reparacion>();
 	
 	public Factura(Vehiculo coche) {
 		this.id_vehiculo=coche.getId();
