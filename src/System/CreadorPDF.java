@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map.Entry;
@@ -105,5 +106,11 @@ public class CreadorPDF {
     	documento.add(new Paragraph("Total piezas y mano de obra: "+factura.getPrecio_total()+"\u20ac").setBorder(bordeDoble));
     	
     	documento.close();
+    	try {
+			java.awt.Desktop.getDesktop().edit(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

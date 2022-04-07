@@ -38,7 +38,9 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setTitle("     Hermanos Gutierrez S.A.");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 661, 452);
+		
+		setBounds(100, 100, 900, 600);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -60,7 +62,7 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 		listaVehiculos = new JList(gestor.getCoches().toArray());
 		listaVehiculos.setSelectedIndex(0);
 		listaVehiculos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
+		listaVehiculos.setToolTipText("Veh\u00edculos registrados.\nElija uno y pulse en el boton Reparar para proceder.");
 		JScrollPane panelVehiculos = new JScrollPane(listaVehiculos);
 		panelVehiculos.setViewportBorder(new TitledBorder(null, "Vehiculos Registrados", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		panelVehiculos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -68,7 +70,7 @@ public class ElegirVehiculoReparar extends JFrame implements ActionListener{
 		
 		listaVehiculosEnRep = new JList(gestor.vehiculosEnReparacion().toArray());
 		listaVehiculosEnRep.setEnabled(false);
-		listaVehiculosEnRep.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listaVehiculosEnRep.setToolTipText("Veh\u00edculos que se han empezado a reparar, pero no est\u00e1n terminados.");
 		
 		JScrollPane panelVehiculosEnRep = new JScrollPane(listaVehiculosEnRep);
 		panelVehiculosEnRep.setViewportBorder(new TitledBorder(null, "Vehiculos en Reparacion", TitledBorder.CENTER, TitledBorder.TOP, null, null));

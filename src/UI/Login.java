@@ -52,16 +52,17 @@ public class Login extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public Login() {
+		
 		setTitle("     Acceso Taller Hermanos Gutierrez S.A.");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/Resources/imagenes/llave-inglesa.png")));	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 567, 308);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		setContentPane(contentPane);
 		
-		JButton botonLogin = new JButton("Acceder");
-		botonLogin.addActionListener(this);
+	
 		contentPane.setLayout(new GridLayout(3, 3, 0, 10));
 		
 		
@@ -71,6 +72,7 @@ public class Login extends JFrame implements ActionListener{
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		txtUsuario.setToolTipText("Usuarios con acceso: Mecanicos y Jefe.");
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
@@ -81,7 +83,11 @@ public class Login extends JFrame implements ActionListener{
 		
 		passwordField = new JPasswordField();
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordField.setToolTipText("Contrase\u00f1a para su usuario.");
 		contentPane.add(passwordField);
+		
+		JButton botonLogin = new JButton("Acceder");
+		botonLogin.addActionListener(this);
 		contentPane.add(botonLogin);
 	}
 	

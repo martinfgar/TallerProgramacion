@@ -55,6 +55,7 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 	private JPanel panelPie;
 	private JButton btnReparacion;
 	private JButton btnFactura;
+	private JButton btnCancelar;
 	private JLabel lblHoras;
 	private JComboBox horasOperacion;
 	/**
@@ -68,8 +69,8 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 		setTitle("     Hermanos Gutierrez S.A.");
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-		setBounds(100, 100, 929, 600);
+		setBounds(100, 100, 800, 300);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -78,16 +79,19 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 		panel_izq = new JPanel();
 		contentPane.add(panel_izq, BorderLayout.WEST);
 		panel_izq.setLayout(new BorderLayout(0, 0));
+		panel_izq.setToolTipText("Elija la pieza a utilizar de la lista.\n Elija la cantidad utilizada en la casilla situada abajo de la lista\n y pulse a\u00f1adir.");
+		
 		listaPiezas = new JList(gestor.piezasEnStock().toArray());
 		JScrollPane panelPiezas = new JScrollPane(listaPiezas);
 		panel_izq.add(panelPiezas, BorderLayout.CENTER);
 		panelPiezas.setViewportBorder(new TitledBorder(null, "Piezas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		
+				
 		panelAnadir = new JPanel();
 		panel_izq.add(panelAnadir, BorderLayout.SOUTH);
 		
 		spinner = new JSpinner();
 		panelAnadir.add(spinner);
+		
 		
 		btnAnadirPieza = new JButton("A\u00F1adir");
 		panelAnadir.add(btnAnadirPieza);
@@ -99,8 +103,10 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 		contentPane.add(panelComentario, BorderLayout.EAST);
 		panelComentario.setLayout(new BoxLayout(panelComentario, BoxLayout.Y_AXIS));
 		txtComentario = new JTextArea("Escriba aqui su comentario");
+		txtComentario.setColumns(10);
+		txtComentario.setLineWrap(true);
 		panelComentario.add(txtComentario);
-		
+		panelComentario.setToolTipText("Casilla para escribir informaci\u00f3n relevante sobre la operaci\u00f3n.\nEsta informaci\u00f3n se incluir\u00e1 en la factura.");
 		lblHoras = new JLabel("Horas intervencion");
 		lblHoras.setHorizontalAlignment(SwingConstants.CENTER);
 		panelComentario.add(lblHoras);
@@ -120,20 +126,31 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 		
 		panelElegidos = new JScrollPane(tablaElegidos);
 		panelElegidos.setViewportBorder(new TitledBorder(null, "Piezas utilizadas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelElegidos.setToolTipText("Listado de las piezas utilizadas en la operaci\u00f3n.");
+
 		contentPane.add(panelElegidos, BorderLayout.CENTER);
+		
 		
 		panelPie = new JPanel();
 		contentPane.add(panelPie, BorderLayout.SOUTH);
 		
-		btnReparacion = new JButton("Finalizar Reparacion");
+		btnReparacion = new JButton("Finalizar Reparaci\u00f3n");
 		btnReparacion.addActionListener(this);
 		btnReparacion.setActionCommand("Reparacion");
+		btnReparacion.setToolTipText("Reparaci\u00f3n finalizada, pero quedan operaciones pendientes para reparar el coche.");
 		panelPie.add(btnReparacion);
 		
 		btnFactura = new JButton("Vehiculo Preparado");
 		btnFactura.addActionListener(this);
 		btnFactura.setActionCommand("Facturar");
+		btnFactura.setToolTipText("Coche preparado para entregar al cliente.");
 		panelPie.add(btnFactura);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setActionCommand("Cancelar");
+		btnCancelar.setToolTipText("Cancelar operaci\u00f3n.");
+		panelPie.add(btnCancelar);
 	}
 	
 	private DefaultTableModel datosTabla() {
@@ -193,7 +210,13 @@ public class VentanaReparacion extends JFrame  implements ActionListener {
 			inc.setVisible(true);
 			dispose();
 			break;
+		case "Cancelar":
+			inc = new Inicio(gestor);
+			inc.setVisible(true);
+			dispose();
+			break;
 		}
+		
 		
 	}
 	
