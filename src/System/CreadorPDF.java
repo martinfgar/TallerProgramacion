@@ -35,6 +35,7 @@ import Modelos.Reparacion;
 
 
 
+
 public class CreadorPDF {
 	
 	
@@ -60,8 +61,8 @@ public class CreadorPDF {
 		Paragraph cabezero = new Paragraph();
 
 		try {
-			String url = "src/Resources/imagenes/llave-inglesa.png";
-			ImageData data = ImageDataFactory.create(url);
+			String url = "/Resources/imagenes/llave-inglesa.png";
+			ImageData data = ImageDataFactory.create(CreadorPDF.class.getResource("/Resources/imagenes/llave-inglesa.png"));
 			Image img = new Image(data);
 			cabezero.add(img);
 		} catch (Exception e1) {
